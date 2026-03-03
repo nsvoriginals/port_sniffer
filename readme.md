@@ -1,70 +1,105 @@
-port_sniffer
+# 🔍 port_sniffer
 
-A fast asynchronous TCP port scanner written in Rust.
+> A blazing-fast, asynchronous TCP port scanner written in Rust — lightweight, minimal, and built for speed.
 
-Features
+---
 
-Scan custom port ranges
+## ✨ Features
 
-Supports IP addresses and domain names
+- ⚡ **Async scanning** powered by [Tokio](https://tokio.rs/) for maximum performance
+- 🌐 **Domain & IP support** — scan hostnames or raw IP addresses
+- 🎯 **Custom port ranges** — scan exactly what you need
+- 🪶 **Minimal dependencies** — stays lean and fast
+- 🔧 **Simple CLI** — intuitive flags, zero config required
 
-Async scanning using Tokio
+---
 
-Configurable start and end ports
+## 📦 Installation
 
-Lightweight and minimal dependencies
+### Build from Source
 
-Installation
-Build locally
+```bash
 cargo build --release
+```
 
-Binary will be available at:
+The compiled binary will be available at:
 
+```
 target/release/port_sniffer
-Install globally (optional)
+```
+
+### Install Globally (optional)
+
+```bash
 cargo install --path .
+```
 
-Make sure ~/.cargo/bin is in your PATH.
+> 💡 Make sure `~/.cargo/bin` is added to your `PATH` to use `port_sniffer` from anywhere.
 
-Usage
+---
 
-Show help:
+## 🚀 Usage
 
+### Show Help
+
+```bash
 port_sniffer --help
+```
 
-Scan localhost with default settings:
+### Scan localhost (default settings)
 
+```bash
 port_sniffer
+```
 
-Scan a specific IP:
+### Scan a specific IP address
 
+```bash
 port_sniffer -a 192.168.1.1
+```
 
-Scan a domain:
+### Scan a domain name
 
+```bash
 port_sniffer -a google.com
+```
 
-Scan a custom port range:
+### Scan a custom port range
 
+```bash
 port_sniffer -a google.com -s 20 -e 100
-Options
+```
 
--a, --address <ADDRESS> Target IP or domain (default: 127.0.0.1)
+---
 
--s, --start-port <PORT> Start port (default: 1)
+## ⚙️ Options
 
--e, --end-port <PORT> End port (default: 65535)
+| Flag | Long Form | Description | Default |
+|------|-----------|-------------|---------|
+| `-a` | `--address` | Target IP address or domain name | `127.0.0.1` |
+| `-s` | `--start-port` | First port in the scan range | `1` |
+| `-e` | `--end-port` | Last port in the scan range | `65535` |
 
-Example Output
+---
+
+## 📋 Example Output
+
+```
 Resolved google.com to 142.250.x.x
 
 Open Ports:
-80 is open
-443 is open
-Disclaimer
+  80  is open
+  443 is open
+```
 
-Use this tool only on systems you own or have permission to test.
+---
 
-License
+## ⚠️ Disclaimer
 
-MIT
+> **Use responsibly.** This tool is intended for use **only** on systems you own or have **explicit permission** to test. Unauthorized port scanning may be illegal in your jurisdiction.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — free to use, modify, and distribute.
